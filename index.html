@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EcoSphere | AI-powered pollution and air quality insights for healthier cities and smarter urban living</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@300;400;500;600;700;800&family=Orbitron:wght@400;500;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Animated Background -->
+    <div class="animated-bg">
+        <div class="particles-container" id="particles"></div>
+        <div class="floating-shapes">
+            <div class="shape shape-1"></div>
+            <div class="shape shape-2"></div>
+            <div class="shape shape-3"></div>
+            <div class="shape shape-4"></div>
+        </div>  
+    </div>
+
+    <!-- Header -->
+    <header id="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <i class="fas fa-leaf"></i>
+                    <span>EcoSphere</span>
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="#features" class="nav-link">Features</a></li>
+                        <li><a href="#dashboard" class="nav-link">Dashboard</a></li>
+                        <li><a href="#flowcharts" class="nav-link">How It Works</a></li>
+                        <li><a href="#app" class="nav-link">Mobile App</a></li>
+                    </ul>
+                </nav>
+                <div class="auth-buttons">
+                    <a href="#" class="btn btn-outline" id="loginBtn">Login</a>
+                    <a href="#" class="btn btn-primary" id="signupBtn">Sign Up</a>
+                </div>
+                <div class="mobile-menu">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1 class="hero-title">
+                        <span class="title-line">AI-Powered</span>
+                        <span class="title-line">Pollution Monitoring</span>
+                        <span class="title-line accent">For Delhi-NCR</span>
+                    </h1>
+                    <p class="hero-description">Real-time source identification, forecasting, and policy recommendations to combat air pollution using advanced AI and satellite data.</p>
+                    <div class="hero-buttons">
+                        <a href="#dashboard" class="btn btn-primary btn-glow">
+                            <span>View Live Dashboard</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                        <a href="#app" class="btn btn-outline">
+                            <span>Download Mobile App</span>
+                            <i class="fas fa-download"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="hero-visual">
+                    <div class="globe-container">
+                        <div class="globe">
+                            <div class="globe-inner">
+                                <div class="pollution-point" style="--delay: 0s"></div>
+                                <div class="pollution-point" style="--delay: 1s"></div>
+                                <div class="pollution-point" style="--delay: 2s"></div>
+                                <div class="pollution-point" style="--delay: 3s"></div>
+                                <div class="pollution-point" style="--delay: 4s"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Advanced Features</h2>
+                <p>Our platform combines cutting-edge technology with user-friendly interfaces to tackle Delhi-NCR's pollution crisis</p>
+            </div>
+            <div class="features-grid" id="featuresGrid">
+                <!-- Features will be dynamically loaded -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Dashboard Preview -->
+    <section id="dashboard" class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Real-Time Dashboard</h2>
+                <p>Live analytics and AI-powered insights for effective pollution control strategies</p>
+            </div>
+            <div class="dashboard-preview">
+                <div class="dashboard-header">
+                    <h3>Delhi-NCR Pollution Intelligence Dashboard</h3>
+                    <div class="dashboard-controls">
+                        <div class="time-filter">
+                            <select id="timeFilter">
+                                <option value="24h">Last 24 Hours</option>
+                                <option value="7d">Last 7 Days</option>
+                                <option value="30d">Last 30 Days</option>
+                                <option value="seasonal">Seasonal View</option>
+                            </select>
+                        </div>
+                        <div class="view-toggle">
+                            <button class="view-btn active" data-view="map">Map View</button>
+                            <button class="view-btn" data-view="analytics">Analytics</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="dashboard-content">
+                    <div class="map-container">
+                        <div id="pollutionMap" class="active-view">
+                            <div class="map-overlay">
+                                <i class="fas fa-map-marked-alt"></i>
+                                <h4>Interactive Pollution Heatmap</h4>
+                                <p>Real-time air quality visualization across Delhi-NCR</p>
+                            </div>
+                            <div class="map-legend">
+                                <div class="legend-item">
+                                    <span class="legend-color good"></span>
+                                    <span>Good (0-50)</span>
+                                </div>
+                                <div class="legend-item">
+                                    <span class="legend-color moderate"></span>
+                                    <span>Moderate (51-100)</span>
+                                </div>
+                                <div class="legend-item">
+                                    <span class="legend-color unhealthy"></span>
+                                    <span>Unhealthy (101-200)</span>
+                                </div>
+                                <div class="legend-item">
+                                    <span class="legend-color very-unhealthy"></span>
+                                    <span>Very Unhealthy (201-300)</span>
+                                </div>
+                                <div class="legend-item">
+                                    <span class="legend-color hazardous"></span>
+                                    <span>Hazardous (301-500)</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="analyticsView" class="hidden-view">
+                            <div class="analytics-content">
+                                <div class="chart-container">
+                                    <canvas id="pollutionChart"></canvas>
+                                </div>
+                                <div class="trends-container">
+                                    <h4>Pollution Trends</h4>
+                                    <div class="trend-item">
+                                        <span class="trend-label">PM2.5 Levels</span>
+                                        <span class="trend-value up">+12%</span>
+                                    </div>
+                                    <div class="trend-item">
+                                        <span class="trend-label">Stubble Burning</span>
+                                        <span class="trend-value up">+25%</span>
+                                    </div>
+                                    <div class="trend-item">
+                                        <span class="trend-label">Vehicular Pollution</span>
+                                        <span class="trend-value down">-8%</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="stats-container">
+                        <div class="stat-card pulse">
+                            <div class="stat-icon">
+                                <i class="fas fa-wind"></i>
+                            </div>
+                            <div class="stat-content">
+                                <h4>Current AQI</h4>
+                                <div class="stat-value" id="currentAQI">256</div>
+                                <p id="aqiCategory">Unhealthy</p>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <i class="fas fa-smog"></i>
+                            </div>
+                            <div class="stat-content">
+                                <h4>Primary Pollutant</h4>
+                                <div class="stat-value" id="primaryPollutant">PM2.5</div>
+                                <p id="pollutantValue">132 μg/m³</p>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                            <div class="stat-content">
+                                <h4>Forecast Tomorrow</h4>
+                                <div class="stat-value" id="forecastAQI">284</div>
+                                <p id="forecastCategory">Very Unhealthy</p>
+                            </div>
+                        </div>
+                        <div class="source-breakdown">
+                            <h4>Source Contribution</h4>
+                            <div id="sourceBreakdown">
+                                <!-- Source breakdown will be dynamically loaded -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Flowcharts Section -->
+    <section id="flowcharts" class="section flowcharts">
+        <div class="container">
+            <div class="section-title">
+                <h2>How It Works</h2>
+                <p>Our AI-driven system processes multiple data sources to deliver accurate pollution insights</p>
+            </div>
+            
+            <div class="flowchart-container">
+                <div class="flowchart-title">
+                    <div class="flowchart-icon">
+                        <i class="fas fa-project-diagram"></i>
+                    </div>
+                    <h3>Overall System Architecture</h3>
+                </div>
+                <div class="flowchart" id="systemArchitecture">
+                    <!-- System architecture steps will be dynamically loaded -->
+                </div>
+            </div>
+            
+            <div class="flowchart-container">
+                <div class="flowchart-title">
+                    <div class="flowchart-icon">
+                        <i class="fas fa-filter"></i>
+                    </div>
+                    <h3>Source Identification Process</h3>
+                </div>
+                <div class="flowchart" id="sourceIdentification">
+                    <!-- Source identification steps will be dynamically loaded -->
+                </div>
+            </div>
+            
+            <div class="flowchart-container">
+                <div class="flowchart-title">
+                    <div class="flowchart-icon">
+                        <i class="fas fa-wind"></i>
+                    </div>
+                    <h3>Pollution Forecasting Module</h3>
+                </div>
+                <div class="flowchart" id="forecastingModule">
+                    <!-- Forecasting steps will be dynamically loaded -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mobile App Features -->
+    <section id="app" class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Citizen Mobile & Web App</h2>
+                <p>Personalized pollution alerts and health recommendations at your fingertips</p>
+            </div>
+            <div class="app-showcase">
+                <div class="app-preview">
+                    <div class="phone-mockup">
+                        <div class="phone-screen">
+                            <div class="app-interface">
+                                <div class="app-header">
+                                    <h4>EcoSphere</h4>
+                                    <div class="aqi-badge">AQI 256</div>
+                                </div>
+                                <div class="app-content">
+                                    <div class="location-card">
+                                        <i class="fas fa-map-marker-alt"></i>
+                                        <span>Your Location</span>
+                                        <span class="location-aqi unhealthy">Unhealthy</span>
+                                    </div>
+                                    <div class="health-tips">
+                                        <h5>Health Recommendations</h5>
+                                        <ul>
+                                            <li>Limit outdoor activities</li>
+                                            <li>Wear N95 mask if going out</li>
+                                            <li>Use air purifiers indoors</li>
+                                        </ul>
+                                    </div>
+                                    <div class="route-suggestion">
+                                        <h5>Safe Route Available</h5>
+                                        <button class="app-btn">View Route</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="app-features" id="appFeaturesList">
+                    <!-- App features will be dynamically loaded -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Join the Fight Against Pollution</h2>
+                <p>Whether you're a citizen, policymaker, or researcher, our platform provides the tools you need to make a difference.</p>
+                <div class="cta-buttons">
+                    <a href="#" class="btn btn-primary btn-glow" id="ctaSignup">
+                        <span>Sign Up for Free</span>
+                        <i class="fas fa-rocket"></i>
+                    </a>
+                    <a href="#" class="btn btn-outline" id="requestDemo">
+                        <span>Request a Demo</span>
+                        <i class="fas fa-play"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <div class="footer-logo">
+                        <i class="fas fa-leaf"></i>
+                        <span>EcoSphere</span>
+                    </div>
+                    <p>AI-driven pollution monitoring and forecasting platform for Delhi-NCR and beyond.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#features">Features</a></li>
+                        <li><a href="#dashboard">Dashboard</a></li>
+                        <li><a href="#flowcharts">How It Works</a></li>
+                        <li><a href="#app">Mobile App</a></li>
+                        <li><a href="#">Research Papers</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Resources</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Documentation</a></li>
+                        <li><a href="#">API Access</a></li>
+                        <li><a href="#">Data Sources</a></li>
+                        <li><a href="#">Methodology</a></li>
+                        <li><a href="#">Case Studies</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contact Us</h3>
+                    <ul class="footer-links">
+                        <li><i class="fas fa-envelope"></i> info@ecosphere.com</li>
+                        <li><i class="fas fa-phone"></i> +91 98765 43210</li>
+                        <li><i class="fas fa-map-marker-alt"></i> Delhi NCR, India</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 EcoSphere. All rights reserved. | Clean & Green Technology Initiative</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Login Modal -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Login to EcoSphere</h2>
+            <form id="loginForm">
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" required>
+                </div>
+                <button type="submit" class="btn btn-primary btn-full">Login</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Signup Modal -->
+    <div id="signupModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Create an Account</h2>
+            <form id="signupForm">
+                <div class="form-group">
+                    <label for="fullName">Full Name</label>
+                    <input type="text" id="fullName" required>
+                </div>
+                <div class="form-group">
+                    <label for="signupEmail">Email</label>
+                    <input type="email" id="signupEmail" required>
+                </div>
+                <div class="form-group">
+                    <label for="signupPassword">Password</label>
+                    <input type="password" id="signupPassword" required>
+                </div>
+                <div class="form-group">
+                    <label for="userType">I am a</label>
+                    <select id="userType" required>
+                        <option value="citizen">Citizen</option>
+                        <option value="researcher">Researcher</option>
+                        <option value="policymaker">Policy Maker</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-primary btn-full">Sign Up</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Loading Screen -->
+    <div id="loadingScreen" class="loading-screen">
+        <div class="loading-content">
+                <div class="loading-logo">
+                <i class="fas fa-leaf"></i>
+                <span>EcoSphere</span>
+            </div>
+            <div class="loading-bar">
+                <div class="loading-progress"></div>
+            </div>
+            <p>Initializing AI Systems...</p>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
